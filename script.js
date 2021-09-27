@@ -5,12 +5,20 @@ let getRelativeTime = (timePostfix) => timePostfix[-2] == 'A' ? 'Day' : 'night';
 let getAdvice = (dayorNight) => dayorNight == 'night' ? 'dont saty out too long tho! 🙄' : 'have a nice day 🤗';
 
 let getIPObject = async () => {
-    //  let url = 'https://geo.ipify.org/api/v1?apiKey=at_0jKVsS1q5y340ZINLeu6lEc4ws8di';
+     let url = 'https://geo.ipify.org/api/v1?apiKey=at_0jKVsS1q5y340ZINLeu6lEc4ws8di';
     let response = await fetch(url);
     let geoObject = await response.json();
     return geoObject;
 }
 
+(async function oninitial() {
+    await setTimeout(() => {
+        document.querySelector('.sk-chase').style.opacity = '0';
+        document.querySelector('main').dataset.state = "on";
+        },3000)
+
+    // await setTimeout(() => {document.querySelector('.sk-chase').style.display = 'none';},0)
+}())
 function showGeo(element, geoObject) {
     element.children[0].firstElementChild.innerText = geoObject.ip;
     element.children[2].firstElementChild.innerText = geoObject.location.region;

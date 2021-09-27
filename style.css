@@ -9,14 +9,14 @@
 html {
     font-size: 10px;
 }
-
+/* || handling specific screens */
 @media screen and (min-width: 657px) {
     html {
         font-size: 8px;
     }
 }
 
-@media screen and (max-width: 401px) {
+@media screen and (max-width: 420px) {
     html {
         font-size: 8px;
     }
@@ -25,6 +25,7 @@ html {
 body {
     width: 100vw;
     height: 100vh;
+    
 }
 /*|| decorative and helper */
 .decorative {
@@ -35,13 +36,14 @@ body {
     /* display: none; */
     margin-top: 10px;
     font-size: 1.5rem;
-    border: solid 1px;
+    border: solid 1px black;
     background-color: black;
     color: white;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     top: 0px;
     left: 0px;
+    z-index: 1;
 }
 
 
@@ -53,13 +55,14 @@ body {
     /* margin-right: 10px; */
     font-size: 16px;
     text-align: center;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid black;
     border-left: 1px solid;
     border-right: 1px solid;
     top: 0px;
     right: 5rem;
     border-bottom-right-radius: 50%;
     border-bottom-left-radius: 50%;
+    z-index: 1;
 }
 
 .helper:active {
@@ -80,13 +83,16 @@ body {
 main {
     width: 100%;
     height: 100%;
-    display: flex;
+    display: none;
     flex-direction: row;
     flex-wrap: wrap;
     overflow-y: scroll;
     overflow-x: hidden;
     padding-bottom: 30px;
     padding-top: 20px;
+}
+main[data-state = "on"]{
+    display: flex;
 }
 /* each card */
 article {
@@ -97,6 +103,12 @@ article {
     margin: 20px 20px 10px 20px;
     border-radius: 12px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12), 0 16px 16px rgba(0, 0, 0, 0.12);
+    background: linear-gradient(-45deg, #23d5ab,#ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 50s linear infinite;
+}
+article p{
+    opacity: 1;
 }
 /* card global style */
 *>div:first-child * {
@@ -125,8 +137,11 @@ article {
     margin: 1.5rem 0px 0px 2rem;
 }
 /*|| cards specifc style */
+.general >div:last-child p{
+    margin-top:1.5rem;
+}
 .geolocation>div:last-child p {
-    margin-top: 1.4rem;
+    margin-top: 1.3rem;
 }
 
 .geolocation>div:last-child p:nth-child(n+3) {
@@ -143,37 +158,94 @@ article {
     font-size: 2rem;
 }
 
-/* em {
-	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-} */
-
+/*|| script generated text */
 @keyframes gradient {
     0% {
-        background-position: 0% 50%;
+        opacity: 1;
     }
     50% {
         background-position: 100% 50%;
+        opacity: 0.7;
     }
     100% {
         background-position: 0% 50%;
+        opacity: 1;
     }
 }
 
 em {
-    /* Fallback: Set a background color. */
-    background-color: red;
-    /* Create the gradient. */
-    background-image: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    /* Set the background size and repeat properties. */
+
+    background-color: gold;
+
+    background-image: linear-gradient(to right, white, gold, yellow);
     background-size: 100%;
     background-repeat: repeat;
-    animation: gradient 15s ease infinite;
-    /* Use the text as a mask for the background. */
-    /* This will show the gradient as a text color rather than element bg. */
+    animation: gradient 8s ease infinite;
+
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
 }
+
+    /* || loading */
+
+@keyframes sk-chase {
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes sk-chase-dot {
+    80%, 100% { transform: rotate(360deg); }
+  }
+
+  @keyframes sk-chase-dot-before {
+    50% {
+      transform: scale(0.4);
+    } 100%, 0% {
+      transform: scale(1.0);
+    }
+  }
+
+.sk-chase {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  top: 50%;
+  right: 50%;
+  transition-property: opacity;
+  transition-duration: 0.8s;
+  transition-timing-function: ease-out;
+  animation: sk-chase 2.5s infinite linear both;
+}
+
+.sk-chase-dot {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: sk-chase-dot 2.0s infinite ease-in-out both;
+}
+
+.sk-chase-dot:before {
+  content: '';
+  display: block;
+  width: 25%;
+  height: 25%;
+  background-color: #000;
+  border-radius: 100%;
+  animation: sk-chase-dot-before 2.0s infinite ease-in-out both;
+}
+
+.sk-chase-dot:nth-child(1) { animation-delay: -1.1s; }
+.sk-chase-dot:nth-child(2) { animation-delay: -1.0s; }
+.sk-chase-dot:nth-child(3) { animation-delay: -0.9s; }
+.sk-chase-dot:nth-child(4) { animation-delay: -0.8s; }
+.sk-chase-dot:nth-child(5) { animation-delay: -0.7s; }
+.sk-chase-dot:nth-child(6) { animation-delay: -0.6s; }
+.sk-chase-dot:nth-child(1):before { animation-delay: -1.1s; }
+.sk-chase-dot:nth-child(2):before { animation-delay: -1.0s; }
+.sk-chase-dot:nth-child(3):before { animation-delay: -0.9s; }
+.sk-chase-dot:nth-child(4):before { animation-delay: -0.8s; }
+.sk-chase-dot:nth-child(5):before { animation-delay: -0.7s; }
+.sk-chase-dot:nth-child(6):before { animation-delay: -0.6s; }
