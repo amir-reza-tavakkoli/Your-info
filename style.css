@@ -25,7 +25,27 @@ body {
     width: 100vw;
     height: 100vh;
 }
+aside {
+    position: fixed;
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    /* margin-right: 10px; */
+    font-size: 2rem;
 
+    border: 1px solid ;
+    top: 0px;
+    right: 5rem;
+}
+aside:active::before   {
+    position: fixed;
+    top: 4rem;
+    right: 5rem;
+    content: 'Geo location data are based on IPify';
+    color: white;
+    background-color: black;
+    padding: 1rem;
+}
 main {
     width: 100%;
     height: 100%;
