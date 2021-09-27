@@ -7,7 +7,7 @@
 
 body {
     width: 100vw;
-    height: 99vh;
+    height: 100vh;
 }
 
 main {
@@ -18,6 +18,8 @@ main {
     flex-wrap: wrap;
     overflow-y: scroll;
     overflow-x: hidden;
+    padding-bottom: 30px;
+    padding-top: 20px;
 }
 
 article {
@@ -25,7 +27,13 @@ article {
     flex-basis: 280px;
     height: 300px;
     background-color: pink;
-    margin: 30px 20px 0px 20px;
+    margin: 20px 20px 10px 20px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.12),
+        0 2px 2px rgba(0,0,0,0.12),
+        0 4px 4px rgba(0,0,0,0.12),
+        0 8px 8px rgba(0,0,0,0.12),
+        0 16px 16px rgba(0,0,0,0.12);
+}
 }
 
 /* article:nth-child(1) {
