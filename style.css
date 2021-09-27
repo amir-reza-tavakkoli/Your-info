@@ -75,6 +75,46 @@ article {
     flex-direction: column;
     margin: 1.5rem 0px 0px 2rem;
 }
-.geolocation {
+.geolocation > div:last-child p:nth-child(n+3) {
+    margin-top: 1rem;
+    margin-left: 1.6rem;
 
 }
+
+/* em {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+} */
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+em {
+    /* Fallback: Set a background color. */
+    background-color: red;
+
+    /* Create the gradient. */
+    background-image: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+    animation: gradient 15s ease infinite;
+
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
