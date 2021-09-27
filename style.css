@@ -10,6 +10,17 @@ html {
     font-size: 10px;
 }
 
+@media screen and (min-width : 657px) {
+    html{
+        font-size: 8px;
+    }
+}
+@media screen and (max-width : 401px) {
+    html{
+        font-size: 8px;
+    }
+}
+
 body {
     width: 100vw;
     height: 100vh;
@@ -41,26 +52,29 @@ article {
         0 16px 16px rgba(0,0,0,0.12);
 }
 
-.general-data > div:first-child * {
+* > div:first-child * {
     font-size: 2rem;
     margin: 1rem 0px 1rem 1rem;
     width: 100%;
     height: 30%;
 }
-.general-data > div:first-child > p{
+* > div:first-child > p{
     margin-top: 2rem;
     margin-bottom: 0px;
     font-size: 1.6rem;
 }
-.general-data > div:first-child h2 {
+* > div:first-child h2 {
     font-size: 2.2rem;
 }
 
-.general-data > div:last-child {
+* > div:last-child {
     font-size: 2rem;
     width: 100%;
     height: 70%;
     display: flex;
     flex-direction: column;
     margin: 1.5rem 0px 0px 2rem;
+}
+.geolocation {
+
 }
