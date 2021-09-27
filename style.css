@@ -2,7 +2,6 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-
     font-family: 'Sriracha', cursive;
 }
 
@@ -10,13 +9,14 @@ html {
     font-size: 10px;
 }
 
-@media screen and (min-width : 657px) {
-    html{
+@media screen and (min-width: 657px) {
+    html {
         font-size: 8px;
     }
 }
-@media screen and (max-width : 401px) {
-    html{
+
+@media screen and (max-width: 401px) {
+    html {
         font-size: 8px;
     }
 }
@@ -25,19 +25,50 @@ body {
     width: 100vw;
     height: 100vh;
 }
-aside {
+
+.decorative {
+    position: fixed;
+    width: max-content;
+    height: 25px;
+    /* display: none; */
+    margin-top: 10px;
+    font-size: 1.5rem;
+    border: solid 1px;
+    background-color: black;
+    color: white;
+    border-top-right-radius: 20%;
+    border-bottom-right-radius: 20%;
+    top: 0px;
+    left: 0px;
+}
+
+.decorative p {
+    display: inline;
+}
+
+.helper {
     position: fixed;
     width: 25px;
     height: 25px;
     background-color: transparent;
     /* margin-right: 10px; */
-    font-size: 2rem;
-
-    border: 1px solid ;
+    font-size: 16px;
+    text-align: center;
+    border-bottom: 1px solid;
+    border-left: 1px solid;
+    border-right: 1px solid;
     top: 0px;
     right: 5rem;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
 }
-aside:active::before   {
+
+aside:active {
+    color: white;
+    background-color: black;
+}
+
+aside:active::before {
     position: fixed;
     top: 4rem;
     right: 5rem;
@@ -46,6 +77,7 @@ aside:active::before   {
     background-color: black;
     padding: 1rem;
 }
+
 main {
     width: 100%;
     height: 100%;
@@ -65,29 +97,27 @@ article {
     background-color: pink;
     margin: 20px 20px 10px 20px;
     border-radius: 12px;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.12),
-        0 2px 2px rgba(0,0,0,0.12),
-        0 4px 4px rgba(0,0,0,0.12),
-        0 8px 8px rgba(0,0,0,0.12),
-        0 16px 16px rgba(0,0,0,0.12);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12), 0 16px 16px rgba(0, 0, 0, 0.12);
 }
 
-* > div:first-child * {
+*>div:first-child * {
     font-size: 2rem;
     margin: 1rem 0px 1rem 1rem;
     width: 100%;
     height: 30%;
 }
-* > div:first-child > p{
+
+*>div:first-child>p {
     margin-top: 2rem;
     margin-bottom: 0px;
     font-size: 1.6rem;
 }
-* > div:first-child h2 {
+
+*>div:first-child h2 {
     font-size: 2.2rem;
 }
 
-* > div:last-child {
+*>div:last-child {
     font-size: 2rem;
     width: 100%;
     height: 70%;
@@ -95,10 +125,23 @@ article {
     flex-direction: column;
     margin: 1.5rem 0px 0px 2rem;
 }
-.geolocation > div:last-child p:nth-child(n+3) {
+
+.geolocation>div:last-child p {
+    margin-top: 1.4rem;
+}
+
+.geolocation>div:last-child p:nth-child(n+3) {
     margin-top: 1rem;
     margin-left: 1.6rem;
+}
 
+.vpn>div:first-child h2 {
+    margin-top: 2rem;
+}
+
+.vpn>div:last-child p {
+    margin-top: 4rem;
+    font-size: 2rem;
 }
 
 /* em {
@@ -108,33 +151,30 @@ article {
 } */
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 em {
     /* Fallback: Set a background color. */
     background-color: red;
-
     /* Create the gradient. */
     background-image: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-
     /* Set the background size and repeat properties. */
     background-size: 100%;
     background-repeat: repeat;
     animation: gradient 15s ease infinite;
-
     /* Use the text as a mask for the background. */
     /* This will show the gradient as a text color rather than element bg. */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
-  }
+}
