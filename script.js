@@ -1,4 +1,4 @@
-import Bowser from "./node_modules/bowser/src/bowser.js";
+import Bowser from "./Your-info/node_modules/bowser/src/bowser.js";
 
 let getBrowser = () => {
      const browser = Bowser.getParser(window.navigator.userAgent);
