@@ -52,7 +52,7 @@ let getIPObject = async () => {
         document.querySelector('.sk-chase').style.opacity = '0';
         document.querySelector('main').dataset.state = "on";
     },3000)
-    console.log(getBattery())
+    // console.log(getBattery())
 
     // await setTimeout(() => {document.querySelector('.sk-chase').style.display = 'none';},0)
 }())
